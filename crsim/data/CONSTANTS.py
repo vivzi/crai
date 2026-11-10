@@ -1,0 +1,24 @@
+# CONSTANTS FOR THE CLASH SIM
+
+# Grid dimensions
+GRID_WIDTH = 18
+SIDE_GRID_HEIGHT = 14
+BRIDGE_COORDS = [[(4, 14), (5, 14), (4, 15), (5, 15)], [(14, 14), (13, 14), (14, 15), (13, 15)]]
+TOTAL_GRID_HEIGHT = 29
+
+# Simulation
+GAME_TICKS = 1800
+TIME_PER_TICK = 0.1
+GAME_DURATION = GAME_TICKS * TIME_PER_TICK
+TOWER_HP = 3052
+KING_TOWER_HP = 4824
+
+
+# Combat
+TOTAL_ELIXIR = 10
+TIME_PER_ELIXIR = 2.8
+ELIXIR_2X_TICKS = 600
+DOUBLE_ELIXIR_TICK = 1200
+TIME_PER_ELIXIR_2X = 1.4
+DECK = ["Knight", "Archers", "Minions", "Arrows", "Fireball", "Giant", "Mini P.E.K.K.A", "Musketeer"]
+
