@@ -1,18 +1,22 @@
 import crsim.data.CONSTANTS as CONSTANTS
+from crsim.engine.player import Player
 import math
 import time
 from crsim.engine.game_state import GameState
 from crsim.engine.player import Player
+from crsim.engine.arena.arena import Arena
 
 class Game:
     def __init__(self, player1, player2, maxTicks=CONSTANTS.GAME_TICKS):
-        self.player1 = Player(CONSTANTS.DECK, 1)
-        self.player2 = Player(CONSTANTS.DECK, 2)
+        self.player1 = player1
+        self.player2 = player2
         self.maxTicks = maxTicks
         self.tick = 0
+        self.arena = Arena(CONSTANTS.ARENA)
 
         self.gameState = GameState(self.player1, self.player2, CONSTANTS.GAME_TICKS, self.tick)
 
+        print(self.arena.player1Deployable)
     def step(self):
 
         # TODO: Implement all dynamic systems change with tick
@@ -22,10 +26,8 @@ class Game:
             self.player2.elixir = min(CONSTANTS.TOTAL_ELIXIR, self.player2.elixir + amount)
 
         self.tick += 1
-        
-        return self.gameState.update(self.player1, self.player2, self.tick)
-        
 
+        return self.gameState.update(self.player1, self.player2, self.tick)
 
     def run(self):
         try:
@@ -39,6 +41,11 @@ class Game:
         finally:
             self.end()
 
+    def end(self):
+        print("game over byebye")
+        return
+
 if __name__ == "__main__":
-    game = Game(1, 2, CONSTANTS.GAME_TICKS)
+    game = Game(Player(CONSTANTS.DECK, 1), Player(CONSTANTS.DECK, 2), CONSTANTS.GAME_TICKS)
     game.run()
+    

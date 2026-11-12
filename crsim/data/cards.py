@@ -1,49 +1,180 @@
-class Giant:
-    def __init__(self):
-        # Basic attributes
-        self.name = "Giant"
-        self.cost = 5
-        self.hp = 3968
-        self.speed = 45
-        self.count = 1
-        self.transport = "Ground"
-        self.type = "Troop"
+from dataclasses import dataclass
+from typing import Optional
 
-        # Attack
-        self.attack_type = "Single Target"
-        self.target_type = "Buildings"
-        
-        self.damage = 253
-        self.attack_speed = 1.5
-        self.range = 1.2
+from crsim.data.enums import (
+    AttackType,
+    CardType,
+    TargetType,
+    Transport
+)
 
-        # Others
-        self.deploy_time = 1.0
-        
+@dataclass(frozen=True)
+class Card:
+    name:str
+    cost:int
+    type:CardType
 
-class MiniPEKKA:
-    def __init__(self):
-        # Basic attributes
-        self.name = "Mini P.E.K.K.A"
-        self.cost = 4
-        self.hp = 1390
-        self.speed = 90
-        self.count = 1
-        self.transport = "Ground"
-        self.type = "Troop"
-        
+    # Troop attributes
+    hp: Optional[int] = None
+    speed: Optional[int] = None
+    count: int = 1
+    transport: Optional[Transport] = None
 
-        # Attack
-        self.attack_type = "Single Target"
-        self.target_type = "Ground"
-        
-        self.damage = 755
-        self.attack_speed = 1.6
-        self.range = 0.8
+    # Attack attributes
+    attack_type: Optional[AttackType] = None
+    target_type: Optional[TargetType] = None
+    damage: Optional[int] = None # ik right now all the cards in deck do damage but maybe in future if we get the full clash royale deck
+    crown_tower_damage: Optional[int] = None
+    attack_speed: Optional[float] = None # same reasoning as above
+    range: Optional[float] = None
 
-        # Others
-        self.deploy_time = 1.0
+    # Additional attributes
+    projectile_speed: Optional[float] = None
+    radius: Optional[int] = None
+    deploy_time: float = 1.0
 
+Cards = {
+    "Giant": Card(
+        name = "Giant",
+        cost = 5,
+        type = CardType.TROOP,
+
+        # Troop Attributes
+        hp = 3968,
+        speed = 45,
+        count = 1,
+        transport = Transport.GROUND,
+
+        # Attack Attributes
+        attack_type=AttackType.SINGLE_TARGET,
+        target_type=TargetType.BUILDINGS,
+
+        damage = 253,
+        attack_speed = 1.5,
+        range = 1.2,
+
+        # Additional Attributes
+        deploy_time = 1.0
+    ),
+    "MiniPEKKA": Card (
+        name = "Mini P.E.K.K.A.",
+        cost = 4,
+        type = CardType.TROOP,
+
+        # Troop Attributes
+        hp = 1390,
+        speed = 90, 
+        count = 1,
+        transport = Transport.GROUND,
+
+        # Attack Attributes
+        attack_type = AttackType.SINGLE_TARGET,
+        target_type = TargetType.GROUND,
+
+        damage = 755,
+        attack_speed = 1.6,
+        range = 0.8,
+
+        # Other Attributes
+        deploy_time = 1.0
+    ),
+    "Knight": Card(
+        name="Knight",
+        cost=3,
+        type=CardType.TROOP,
+        hp=1766,
+        speed=60,
+        count=1,
+        transport=Transport.GROUND,
+        attack_type=AttackType.SINGLE_TARGET,
+        target_type=TargetType.GROUND,
+        damage=202,
+        attack_speed=1.2,
+        range=1.2,
+        deploy_time=1.0,
+    ),
+    "Archers": Card(
+        name="Archers",
+        cost=3,
+        type=CardType.TROOP,
+        hp=304,
+        speed=75,
+        count=2,
+        transport=Transport.GROUND,
+        attack_type=AttackType.SINGLE_TARGET,
+        target_type=TargetType.ALL,
+        damage=112,
+        attack_speed=0.9,
+        range=5,
+        projectile_speed=600,
+        deploy_time=1.0,
+    ),
+    "Minions": Card(
+        name="Minions",
+        cost=3,
+        type=CardType.TROOP,
+        hp=230,
+        speed=90,
+        count=3,
+        transport=Transport.AIR,
+        attack_type=AttackType.SINGLE_TARGET,
+        target_type=TargetType.ALL,
+        damage=107,
+        attack_speed=1.2,
+        range=2.5,
+        projectile_speed=1000,
+        deploy_time=1.0,
+    ),
+    "Musketeer": Card(
+        name="Musketeer",
+        cost=4,
+        type=CardType.TROOP,
+        hp=721,
+        speed=60,
+        count=1,
+        transport=Transport.GROUND,
+        attack_type=AttackType.SINGLE_TARGET,
+        target_type=TargetType.ALL,
+        damage=217,
+        attack_speed=1,
+        range=6,
+        projectile_speed=1000,
+        deploy_time=1.0,
+    ),
+    "Arrows": Card(
+        name="Arrows",
+        cost=3,
+        type=CardType.SPELL,
+        speed=1100,
+        count=3,
+        attack_type=AttackType.AREA_DAMAGE,
+        target_type=TargetType.ALL,
+        damage=122,
+        crown_tower_damage=31,
+        attack_speed=0.5,
+        radius=3.5,
+        deploy_time=0,
+    ),
+    "Fireball": Card(
+        name="Fireball",
+        cost=4,
+        type=CardType.SPELL,
+        speed=600,
+        count=1,
+        attack_type=AttackType.AREA_DAMAGE,
+        target_type=TargetType.ALL,
+        damage=688,
+        crown_tower_damage=159,
+        attack_speed=0.5,
+        radius=2.5,
+        deploy_time=0,
+    ),}
+
+
+
+
+
+"""
 class Knight:
     def __init__(self):
         # Basic attributes
@@ -181,3 +312,5 @@ class Fireball:
 
         # Others
         self.deploy_time = 0
+
+"""
