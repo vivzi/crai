@@ -17,8 +17,8 @@ class Game:
         self.gameState = GameState(self.player1, self.player2, CONSTANTS.GAME_TICKS, self.tick)
 
         print(self.arena.player1Deployable)
-    def step(self):
 
+    def step(self):
         # TODO: Implement all dynamic systems change with tick
         if self.tick % 28 == 0:
             amount = 2 if self.tick >= CONSTANTS.DOUBLE_ELIXIR_TICK else 1

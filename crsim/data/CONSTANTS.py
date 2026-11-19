@@ -37,8 +37,10 @@ ARENA[26:30, 7:11] = 4
 # COORDINATES
 
 BRIDGE_COORDS = [
-    [(4, 15), (4, 16)],
-    [(15, 15), (15, 16)]
+    [(4, 15), (4, 16),
+     (5, 15), (5, 16)],
+    [(15, 15), (15, 16),
+     (16, 15), (16, 16)]
 ]
 
 
@@ -68,5 +70,5 @@ TIME_PER_ELIXIR = 2.8
 ELIXIR_2X_TICKS = 600
 DOUBLE_ELIXIR_TICK = 1200
 TIME_PER_ELIXIR_2X = 1.4
-DECK = ["Knight", "Archers", "Minions", "Arrows", "Fireball", "Giant", "Mini P.E.K.K.A", "Musketeer"]
+DECK = ["Knight", "Archers", "Minions", "Arrows", "Fireball", "Giant", "MiniPEKKA", "Musketeer"]
 

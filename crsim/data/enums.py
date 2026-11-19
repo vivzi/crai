@@ -17,3 +17,9 @@ class TargetType(Enum):
     AIR = auto()
     BUILDINGS = auto()
     ALL = auto()
+
+class DeployMessage(Enum):
+    NO_ELIXIR = auto()
+    NOT_IN_HAND = auto()
+    INVALID_ZONE = auto()
+    OK = auto()
