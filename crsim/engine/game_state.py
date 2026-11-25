@@ -1,3 +1,6 @@
+# game_state.py
+# doesn't do much, just gives tiny reports on what's going on
+
 import crsim.data.CONSTANTS as CONSTANTS
 
 class GameState:

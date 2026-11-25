@@ -1,3 +1,6 @@
+# player.py
+# a class containing all the details for a player, class is used to create 2 player objects 
+
 import crsim.data.CONSTANTS as CONSTANTS
 
 class Player:

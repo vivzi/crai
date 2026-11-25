@@ -1,3 +1,6 @@
+# arena.py
+# defines a map and marks it by coordinates
+
 import crsim.data.CONSTANTS as CONSTANTS
 import numpy as np
 
@@ -7,6 +10,6 @@ class Arena:
         self.map = map
 
         self.deployable = np.argwhere(map == 0)[:, ::-1] + 1
-        self.player1Deployable = np.argwhere(map[:14, :] == 0)[:, ::-1] + 1
-        self.player2Deployable = np.argwhere(map[16:, :] == 0)[:, ::-1] + 1
+        self.player1Deployable = np.argwhere(map[:14, :] == 0)[:, ::-1] + 1 # bottom half of screen
+        self.player2Deployable = np.argwhere(map[16:, :] == 0)[:, ::-1] + 1 # top half of screen
         self.player2Deployable[:, 1] += 16

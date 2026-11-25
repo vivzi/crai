@@ -1,3 +1,6 @@
+# enums.py
+# datatypes for ease of use
+
 from enum import Enum, auto
 
 class CardType(Enum):

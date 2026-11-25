@@ -1,4 +1,5 @@
-# CONSTANTS FOR THE CLASH SIM
+# constants.py
+# constants for the clash sim
 
 import numpy as np
 

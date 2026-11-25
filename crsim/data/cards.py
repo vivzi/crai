@@ -1,3 +1,6 @@
+# cards.py
+# creates all cards with data from the clash royale fandom
+
 from dataclasses import dataclass
 from typing import Optional
 
